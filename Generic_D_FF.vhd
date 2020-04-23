@@ -1,0 +1,28 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY Generic_D_FF IS
+	GENERIC
+	(
+		N	:	INTEGER
+	);
+	
+	PORT
+	(
+		D		:	IN		STD_LOGIC;
+		CLOCK	:	IN		STD_LOGIC;
+		Q_D	:	INOUT	STD_LOGIC
+	);
+END Generic_D_FF;
+
+ARCHITECTURE Gen_D_FF OF Generic_D_FF IS
+	SIGNAL NOT_Q_D : STD_LOGIC;
+	BEGIN
+		Generic_DFF : PROCESS (CLOCK, D)
+		BEGIN
+			IF CLOCK = '1' THEN
+				Q_D		<= D;
+				NOT_Q_D	<= NOT D;
+			END IF;
+		END PROCESS GeneriC_DFF;	
+END Gen_D_FF;
